@@ -25,6 +25,10 @@ public class BoxService {
         box.setState(BoxState.IDLE);
         return boxRepository.save(box);
     }
+    
+    public Box getBoxById(Long boxId) {
+        return getBoxOrThrow(boxId);
+    }
 
     public List<Box> getAvailableBoxes() {
         return boxRepository.findByState(BoxState.IDLE);

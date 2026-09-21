@@ -24,6 +24,11 @@ public class BoxController {
         return ResponseEntity.status(201).body(saved);
     }
 
+    @GetMapping("/{id}")
+        public ResponseEntity<Box> getBoxById(@PathVariable Long id) {
+        return ResponseEntity.ok(boxService.getBoxById(id));
+}
+
     @PostMapping("/{id}/items")
     public ResponseEntity<Item> loadItem(@PathVariable Long id, @Valid @RequestBody Item item) {
         Item saved = boxService.loadItem(id, item);
