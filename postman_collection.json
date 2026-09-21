@@ -1,0 +1,85 @@
+{
+  "info": {
+    "name": "Delivery Box API",
+    "description": "Collection covering all endpoints for the Delivery Box API take-home assessment.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Box",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"txref\": \"BOX-004\",\n    \"weightLimit\": 250,\n    \"batteryCapacity\": 90\n}"
+        },
+        "url": { "raw": "http://localhost:8080/boxes", "host": ["localhost"], "port": "8080", "path": ["boxes"] }
+      }
+    },
+    {
+      "name": "Get Box by ID",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/boxes/1", "host": ["localhost"], "port": "8080", "path": ["boxes", "1"] }
+      }
+    },
+    {
+      "name": "Get Available Boxes",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/boxes/available", "host": ["localhost"], "port": "8080", "path": ["boxes", "available"] }
+      }
+    },
+    {
+      "name": "Get Battery Level",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/boxes/1/battery", "host": ["localhost"], "port": "8080", "path": ["boxes", "1", "battery"] }
+      }
+    },
+    {
+      "name": "Load Item (Success)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"test-item\",\n    \"weight\": 200,\n    \"code\": \"ITEM001\"\n}"
+        },
+        "url": { "raw": "http://localhost:8080/boxes/1/items", "host": ["localhost"], "port": "8080", "path": ["boxes", "1", "items"] }
+      }
+    },
+    {
+      "name": "Load Item (Fails - Low Battery on BOX-002)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"test-item\",\n    \"weight\": 50,\n    \"code\": \"ITEM002\"\n}"
+        },
+        "url": { "raw": "http://localhost:8080/boxes/2/items", "host": ["localhost"], "port": "8080", "path": ["boxes", "2", "items"] }
+      }
+    },
+    {
+      "name": "Load Item (Fails - Exceeds Weight Limit)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"heavy-item\",\n    \"weight\": 400,\n    \"code\": \"ITEM003\"\n}"
+        },
+        "url": { "raw": "http://localhost:8080/boxes/1/items", "host": ["localhost"], "port": "8080", "path": ["boxes", "1", "items"] }
+      }
+    },
+    {
+      "name": "Get Items in Box",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/boxes/1/items", "host": ["localhost"], "port": "8080", "path": ["boxes", "1", "items"] }
+      }
+    }
+  ]
+}
