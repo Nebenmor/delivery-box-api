@@ -1,5 +1,6 @@
 package com.anthony.delivery_box_api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -25,9 +26,10 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "box_id")
+    @JsonIgnore
     private Box box;
 
-    // Getters and setters
+    // Getters and setters stay the same
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
