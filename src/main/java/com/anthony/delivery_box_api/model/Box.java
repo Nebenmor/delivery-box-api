@@ -1,4 +1,4 @@
-package com.anthony.delivery_box_api;
+package com.anthony.delivery_box_api.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

@@ -1,4 +1,7 @@
-package com.anthony.delivery_box_api;
+package com.anthony.delivery_box_api.controller;
+import com.anthony.delivery_box_api.model.Box;
+import com.anthony.delivery_box_api.model.Item;
+import com.anthony.delivery_box_api.service.BoxService;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
