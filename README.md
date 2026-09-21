@@ -131,3 +131,8 @@ Unit tests cover `BoxService`'s core business logic: successful item loading, re
 A Postman collection is included at [`postman_collection.json`](./postman_collection.json) with pre-configured requests for every endpoint, including examples that intentionally trigger both business rule rejections.
 
 Import it into Postman via **File → Import**, then run requests against `http://localhost:8080` while the application is running.
+
+## Author
+
+Anthony Nebenmor
+[LinkedIn](https://www.linkedin.com/in/anthony-nebenmor) · [GitHub](https://github.com/Nebenmor) · [Portfolio](https://devanthon.vercel.app)
